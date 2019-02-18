@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { fetchResources } from "../Services/jsonPlaceHodlerService";
+import React from "react";
+import { fetchResourceHook } from "../hooks/fetchResourceHook";
 
 const DataList = props => {
-  const [resources, updateState] = useState([]);
-  const { selectedResource } = props;
-
-  const fetchData = async () => {
-    const response = await fetchResources(selectedResource);
-    updateState(response.data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [selectedResource]);
+  const resources = fetchResourceHook(props.selectedResource);
 
   return (
     <div className="ui container" style={{ textAlign: "left" }}>
