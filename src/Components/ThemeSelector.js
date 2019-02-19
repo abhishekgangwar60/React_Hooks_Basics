@@ -14,7 +14,7 @@ export const ThemeSelector = () => {
       <div>
         <button
           className="ui button primary"
-          onClick={() => selectResource("todos")}
+          onClick={() => onButtonClick("todos")}
         >
           todos
         </button>
